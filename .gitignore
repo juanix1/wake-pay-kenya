@@ -6,3 +6,8 @@ node_modules/
 wake-update/
 *.log
 .DS_Store
+.gradle/
+**/build/
+local.properties
+*.jks
+*.keystore
