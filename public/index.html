@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101827"><title>Wake & Pay Kenya | Admin</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<section id="loginScreen" class="login-screen"><div class="login-card">
+<div class="brand login-brand"><span class="brand-mark">W</span><div><b>WAKE & PAY</b><small>KENYA CONTROL</small></div></div>
+<p class="eyebrow">SECURE ADMINISTRATION</p><h1>Welcome back</h1><p class="login-description">Sign in with your administrator account.</p>
+<form id="loginForm"><label>Email address<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required></label><button id="loginButton" class="primary login-button">Sign in securely</button></form>
+<p id="loginMessage" class="message" role="status"></p><small class="security-note">Administrator access is verified by the server.</small></div></section>
+<section id="dashboardScreen" class="app-screen" hidden>
+<aside class="sidebar"><div class="brand"><span class="brand-mark">W</span><div><b>WAKE & PAY</b><small>KENYA CONTROL</small></div></div>
+<nav><a href="#overview">Overview</a><a href="#devices">Devices</a><a href="#alarms">Alarms</a><a href="#payments">Payments</a><a href="#settings">Fees</a><a href="#activity">Activity</a></nav>
+<div class="side-note"><span class="dot"></span> Admin control<br><small>M-Pesa: configuration required</small></div></aside>
+<main class="main"><header class="topbar"><div><p class="eyebrow">ADMINISTRATION</p><h1>Dashboard</h1></div><div class="admin-actions"><span id="adminEmail" class="admin-email"></span><button id="logoutButton" class="secondary logout-button">Log out</button></div></header>
+<div id="notice" class="notice" role="status">Loading live records…</div>
+<section id="overview" class="stats">
+<article class="stat"><span>Registered devices</span><b id="deviceCount">—</b></article><article class="stat"><span>Active devices</span><b id="activeCount">—</b></article><article class="stat"><span>Pending consent</span><b id="pendingCount">—</b></article><article class="stat"><span>Verified payments today</span><b id="paidToday">—</b></article></section>
+<section id="devices" class="panel"><div class="panel-head"><div><p class="eyebrow">DEVICE MANAGEMENT</p><h2>Register a phone</h2></div></div>
+<form id="deviceForm" class="form-grid"><label>Owner profile UUID<input id="ownerId" required placeholder="Owner's Supabase user ID"></label><label>Device label<input id="deviceLabel" required maxlength="80" placeholder="e.g. John's Android phone"></label><button class="primary">Create pending registration</button></form>
+<p class="hint">This creates a pending record only. The phone owner must sign in to their own account and explicitly consent before an administrator can activate it.</p><p id="deviceMessage" class="message"></p>
+<div class="table-wrap"><table><thead><tr><th>Phone</th><th>Owner ID</th><th>Consent</th><th>Status</th><th>Action</th></tr></thead><tbody id="devicesBody"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></section>
+<section id="alarms" class="panel"><div class="panel-head"><div><p class="eyebrow">SCHEDULING</p><h2>Create an alarm</h2></div></div>
+<form id="alarmForm" class="form-grid"><label>Active device ID<input id="alarmDevice" required placeholder="Device UUID"></label><label>Alarm label<input id="alarmLabel" value="Wake up" maxlength="80" required></label><label>Date and time (Kenya time)<input id="alarmTime" type="datetime-local" required></label><button class="primary">Create alarm</button></form><p id="alarmMessage" class="message"></p><div id="alarmsList" class="simple-list">Loading alarms…</div></section>
+<section id="payments" class="panel"><div class="panel-head"><div><p class="eyebrow">TRANSACTION ACTIVITY</p><h2>Recent payments</h2></div><span class="tag">Verified status only</span></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Action</th><th>Amount</th><th>Status</th><th>Receipt</th></tr></thead><tbody id="paymentsBody"><tr><td colspan="5">Loading…</td></tr></tbody></table></div><p class="hint">No payment is marked paid by this dashboard. Daraja STK Push, callback validation and reconciliation must be implemented before accepting live payments.</p></section>
+<section id="settings" class="panel"><div class="panel-head"><div><p class="eyebrow">PRICING</p><h2>Alarm fees (KSh)</h2></div></div><form id="feeForm" class="form-grid"><label>Snooze fee<input id="snoozeFee" type="number" min="1" max="10000" step="1" required></label><label>Stop fee<input id="stopFee" type="number" min="1" max="10000" step="1" required></label><button class="primary">Save fees</button></form><p id="feeMessage" class="message"></p></section>
+<section id="activity" class="panel"><div class="panel-head"><div><p class="eyebrow">AUDIT TRAIL</p><h2>Recent device activity</h2></div></div><div id="eventsList" class="simple-list">Loading activity…</div></section>
+<footer>Wake & Pay Kenya · Admin portal · <span id="year"></span></footer></main></section>
+<script type="module" src="/app.js"></script></body></html>

@@ -1,0 +1,15 @@
+{
+  "name": "wake-pay-kenya",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Wake & Pay Kenya starter admin dashboard and API scaffold",
+  "scripts": {
+    "dev": "node backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
